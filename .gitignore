@@ -1,0 +1,10 @@
+# Local dev tooling (Claude Code launch config)
+.claude/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
