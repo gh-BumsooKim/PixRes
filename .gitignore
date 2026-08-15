@@ -1,0 +1,13 @@
+# Site (lives on gh-pages branch, not main)
+docs/
+
+# Local dev tooling
+.claude/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
