@@ -11,6 +11,11 @@
 
   <title>PixRes &mdash; Native-Resolution Image Detection via PF-ODE Inversion</title>
 
+  <!-- Inline SVG favicon (magnifier emoji) so browsers don't request the
+       non-existent /favicon.ico and log a 404. -->
+  <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%8D%3C/text%3E%3C/svg%3E">
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|JetBrains+Mono"
         rel="stylesheet">
   <!-- Pixel font for the title-scan gimmick -->
@@ -20,7 +25,11 @@
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <!-- fontawesome.all.min.css removed: it references ../webfonts/*.woff2
+       which we don't ship, causing 6 × 404 in console.  The icons on the
+       page are actually rendered by static/js/fontawesome.all.min.js
+       (SVG-inject mode), which needs no font files. -->
+  <!-- <link rel="stylesheet" href="static/css/fontawesome.all.min.css"> -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
@@ -299,10 +308,11 @@
     }
     .subtitle { color: var(--pix-muted) !important; }
 
-    /* Footer  --  deep theme fill so it clearly closes the page and does not
-       blend with body content on scroll.  Mirrors the top navbar palette. */
+    /* Footer  --  SOLID navy so the visit-tracker map (which is a single
+       solid colour PNG) can match the footer exactly. Gradient looked
+       nice standalone but no single tracker colour could match a gradient. */
     .footer {
-      background: linear-gradient(90deg, #1e326e 0%, #263f8f 55%, #2f4dab 100%) !important;
+      background: #263f8f !important;
       color: rgba(255, 255, 255, 0.85) !important;
       border-top: 3px solid var(--pix-highlight);
       padding: 2.6em 1.5em 2.4em;
@@ -1791,6 +1801,13 @@
             project page.
             Licensed under
             <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+          </p>
+          <p style="margin-top: 1.2rem;">
+            <!-- Visit tracker  --  JS version (renders interactive map in-place).
+                 co/ct params added so the injected widget matches the solid
+                 navy footer background exactly. -->
+            <script type="text/javascript" id="mapmyvisitors"
+                    src="https://mapmyvisitors.com/map.js?cl=ffffff&w=300&t=tt&d=zNajK_DRR477MtEDzPrZYMvTGaoMAwcglsH9rvKtvuE&co=263f8f&ct=ffffff"></script>
           </p>
         </div>
       </div>
